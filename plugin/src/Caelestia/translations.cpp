@@ -2,6 +2,7 @@
 #include <QFileInfo>
 #include <QLocale>
 #include <QLoggingCategory>
+#include <QMetaObject>
 #include <QStandardPaths>
 #include <QString>
 #include <QStringList>
@@ -41,17 +42,9 @@ bool installFromFile(QCoreApplication* app, const QString& localeName) {
     return false;
 }
 
-void installCaelestiaTranslator() {
-    QCoreApplication* app = QCoreApplication::instance();
-    if (!app) {
-        qCWarning(logTranslations) << "No QCoreApplication instance; skipping translation install.";
-        return;
-    }
-
+void doInstall(QCoreApplication* app) {
     // Apply system locale as Qt's default so QML's Qt.locale(),
     // Qt.formatDateTime() and QML's `locale:` bindings inherit it.
-    // Without this, Qt defaults to QLocale::c() (en-US) for date
-    // formatting even when LANG/LC_TIME point at es_CL.
     QLocale::setDefault(QLocale::system());
 
     // Install least-specific first so more-specific overrides end up on
@@ -71,6 +64,20 @@ void installCaelestiaTranslator() {
     if (!installed) {
         qCDebug(logTranslations) << "No translation file matched system locale" << sysName;
     }
+}
+
+void installCaelestiaTranslator() {
+    QCoreApplication* app = QCoreApplication::instance();
+    if (!app) {
+        qCWarning(logTranslations) << "No QCoreApplication instance; skipping translation install.";
+        return;
+    }
+
+    // The startup hook may fire on the QML loader thread, but QTranslator
+    // must be parented and installed on the app's thread. Queue the work
+    // there. Qt::AutoConnection becomes Queued when crossing threads and
+    // Direct when already on the right one.
+    QMetaObject::invokeMethod(app, [app]() { doInstall(app); }, Qt::AutoConnection);
 }
 
 }  // namespace
