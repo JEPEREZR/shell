@@ -9,48 +9,56 @@ QtObject {
         QtObject {
             readonly property string id: "network"
             readonly property string label: "network"
+            readonly property string displayLabel: qsTr("Network")
             readonly property string icon: "router"
             readonly property string component: "network/NetworkingPane.qml"
         },
         QtObject {
             readonly property string id: "bluetooth"
             readonly property string label: "bluetooth"
+            readonly property string displayLabel: qsTr("Bluetooth")
             readonly property string icon: "settings_bluetooth"
             readonly property string component: "bluetooth/BtPane.qml"
         },
         QtObject {
             readonly property string id: "audio"
             readonly property string label: "audio"
+            readonly property string displayLabel: qsTr("Audio")
             readonly property string icon: "volume_up"
             readonly property string component: "audio/AudioPane.qml"
         },
         QtObject {
             readonly property string id: "appearance"
             readonly property string label: "appearance"
+            readonly property string displayLabel: qsTr("Appearance")
             readonly property string icon: "palette"
             readonly property string component: "appearance/AppearancePane.qml"
         },
         QtObject {
             readonly property string id: "taskbar"
             readonly property string label: "taskbar"
+            readonly property string displayLabel: qsTr("Taskbar")
             readonly property string icon: "task_alt"
             readonly property string component: "taskbar/TaskbarPane.qml"
         },
         QtObject {
             readonly property string id: "notifications"
             readonly property string label: "notifications"
+            readonly property string displayLabel: qsTr("Notifications")
             readonly property string icon: "notifications"
             readonly property string component: "notifications/NotificationsPane.qml"
         },
         QtObject {
             readonly property string id: "launcher"
             readonly property string label: "launcher"
+            readonly property string displayLabel: qsTr("Launcher")
             readonly property string icon: "apps"
             readonly property string component: "launcher/LauncherPane.qml"
         },
         QtObject {
             readonly property string id: "dashboard"
             readonly property string label: "dashboard"
+            readonly property string displayLabel: qsTr("Dashboard")
             readonly property string icon: "dashboard"
             readonly property string component: "dashboard/DashboardPane.qml"
         }

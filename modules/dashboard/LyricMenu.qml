@@ -103,7 +103,7 @@ StyledRect {
 
             StyledText {
                 Layout.fillWidth: true
-                text: LyricsService.preferredBackend === "Local" ? "Loaded File:" : "Fetched Candidates:"
+                text: LyricsService.preferredBackend === "Local" ? qsTr("Loaded File:") : qsTr("Fetched Candidates:")
                 color: Colours.palette.m3outline
                 font.pointSize: Tokens.font.size.small
                 elide: Text.ElideRight
@@ -290,7 +290,7 @@ StyledRect {
 
                 StyledText {
                     Layout.fillWidth: true
-                    text: "Manual Search"
+                    text: qsTr("Manual Search")
                     font.pointSize: Tokens.font.size.small
                     color: Colours.palette.m3onSurfaceVariant
                     elide: Text.ElideRight
@@ -345,7 +345,7 @@ StyledRect {
                 }
 
                 StyledText {
-                    text: "Offset"
+                    text: qsTr("Offset")
                     color: Colours.palette.m3outline
                     font.pointSize: Tokens.font.size.normal
                 }

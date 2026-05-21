@@ -583,6 +583,13 @@ TRANSLATIONS: dict[str, str] = {
     "%1 • %2": "%1 • %2",
     "%1%": "%1%",
     "%1: %2": "%1: %2",
+    # Strings agregados como qsTr() en este fork
+    "Manual Search": "Búsqueda manual",
+    "Offset": "Desfase",
+    "Loaded File:": "Archivo cargado:",
+    "Fetched Candidates:": "Candidatos obtenidos:",
+    "XKB limitation: maximum 4 layouts allowed":
+        "Limitación de XKB: máximo 4 distribuciones permitidas",
 }
 
 

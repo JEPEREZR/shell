@@ -209,9 +209,8 @@ Item {
                 anchors.leftMargin: Tokens.spacing.normal
 
                 opacity: 0
-                text: item.label
+                text: item.displayLabel
                 color: item.active ? Colours.palette.m3onSecondaryContainer : Colours.palette.m3onSurface
-                font.capitalization: Font.Capitalize
             }
 
             StyledText {
@@ -221,9 +220,8 @@ Item {
                 anchors.top: icon.bottom
                 anchors.topMargin: Tokens.spacing.small / 2
 
-                text: item.label
+                text: item.displayLabel
                 font.pointSize: Tokens.font.size.small
-                font.capitalization: Font.Capitalize
             }
         }
     }

@@ -1108,6 +1108,10 @@ Distribución de teclado: %1</translation>
         <source>Keyboard Layouts</source>
         <translation>Distribuciones de teclado</translation>
     </message>
+    <message>
+        <source>XKB limitation: maximum 4 layouts allowed</source>
+        <translation>Limitación de XKB: máximo 4 distribuciones permitidas</translation>
+    </message>
 </context>
 <context>
     <name>KbLayoutModel</name>
@@ -1177,12 +1181,28 @@ Distribución de teclado: %1</translation>
 <context>
     <name>LyricMenu</name>
     <message>
+        <source>Loaded File:</source>
+        <translation>Archivo cargado:</translation>
+    </message>
+    <message>
+        <source>Fetched Candidates:</source>
+        <translation>Candidatos obtenidos:</translation>
+    </message>
+    <message>
+        <source>Manual Search</source>
+        <translation>Búsqueda manual</translation>
+    </message>
+    <message>
         <source>title</source>
         <translation>título</translation>
     </message>
     <message>
         <source>artist</source>
         <translation>artista</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>Desfase</translation>
     </message>
 </context>
 <context>
@@ -1611,6 +1631,41 @@ Distribución de teclado: %1</translation>
     <message>
         <source>Popup notifications are now enabled</source>
         <translation>Las notificaciones emergentes están habilitadas</translation>
+    </message>
+</context>
+<context>
+    <name>PaneRegistry</name>
+    <message>
+        <source>Network</source>
+        <translation>Red</translation>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation>Audio</translation>
+    </message>
+    <message>
+        <source>Appearance</source>
+        <translation>Apariencia</translation>
+    </message>
+    <message>
+        <source>Taskbar</source>
+        <translation>Barra de tareas</translation>
+    </message>
+    <message>
+        <source>Notifications</source>
+        <translation>Notificaciones</translation>
+    </message>
+    <message>
+        <source>Launcher</source>
+        <translation>Lanzador</translation>
+    </message>
+    <message>
+        <source>Dashboard</source>
+        <translation>Panel</translation>
     </message>
 </context>
 <context>
