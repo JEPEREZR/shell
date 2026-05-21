@@ -124,6 +124,7 @@ Item {
                 Layout.topMargin: index === 0 ? Tokens.spacing.large * 2 : 0
                 icon: PaneRegistry.getByIndex(index).icon
                 label: PaneRegistry.getByIndex(index).label
+                displayLabel: PaneRegistry.getByIndex(index).displayLabel
             }
         }
     }
@@ -133,6 +134,7 @@ Item {
 
         required property string icon
         required property string label
+        required property string displayLabel
         readonly property bool active: root.session.active === label
 
         implicitWidth: background.implicitWidth
