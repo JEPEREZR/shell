@@ -48,6 +48,12 @@ void installCaelestiaTranslator() {
         return;
     }
 
+    // Apply system locale as Qt's default so QML's Qt.locale(),
+    // Qt.formatDateTime() and QML's `locale:` bindings inherit it.
+    // Without this, Qt defaults to QLocale::c() (en-US) for date
+    // formatting even when LANG/LC_TIME point at es_CL.
+    QLocale::setDefault(QLocale::system());
+
     // Install least-specific first so more-specific overrides end up on
     // top of the translator stack (installTranslator prepends).
     const QString sysName = QLocale::system().name();  // e.g. "es_CL"

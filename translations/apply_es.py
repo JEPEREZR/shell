@@ -590,6 +590,24 @@ TRANSLATIONS: dict[str, str] = {
     "Fetched Candidates:": "Candidatos obtenidos:",
     "XKB limitation: maximum 4 layouts allowed":
         "Limitación de XKB: máximo 4 distribuciones permitidas",
+    # Condiciones de clima (Weather.qml getWeatherCondition)
+    "Clear": "Despejado",
+    "Partly cloudy": "Parcialmente nublado",
+    "Overcast": "Cubierto",
+    "Fog": "Niebla",
+    "Drizzle": "Llovizna",
+    "Freezing drizzle": "Llovizna congelante",
+    "Light rain": "Lluvia ligera",
+    "Rain": "Lluvia",
+    "Heavy rain": "Lluvia intensa",
+    "Light snow": "Nieve ligera",
+    "Snow": "Nieve",
+    "Heavy snow": "Nieve intensa",
+    "Light snow showers": "Chubascos de nieve ligeros",
+    "Heavy snow showers": "Chubascos de nieve intensos",
+    "Thunderstorm": "Tormenta eléctrica",
+    "Thunderstorm with hail": "Tormenta eléctrica con granizo",
+    "Unknown City": "Ciudad desconocida",
 }
 
 

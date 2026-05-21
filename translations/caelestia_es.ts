@@ -2677,6 +2677,78 @@ Distribución de teclado: %1</translation>
         <source>No weather</source>
         <translation>Sin información del clima</translation>
     </message>
+    <message>
+        <source>Unknown City</source>
+        <translation>Ciudad desconocida</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Despejado</translation>
+    </message>
+    <message>
+        <source>Partly cloudy</source>
+        <translation>Parcialmente nublado</translation>
+    </message>
+    <message>
+        <source>Overcast</source>
+        <translation>Cubierto</translation>
+    </message>
+    <message>
+        <source>Fog</source>
+        <translation>Niebla</translation>
+    </message>
+    <message>
+        <source>Drizzle</source>
+        <translation>Llovizna</translation>
+    </message>
+    <message>
+        <source>Freezing drizzle</source>
+        <translation>Llovizna congelante</translation>
+    </message>
+    <message>
+        <source>Light rain</source>
+        <translation>Lluvia ligera</translation>
+    </message>
+    <message>
+        <source>Rain</source>
+        <translation>Lluvia</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
+        <translation>Lluvia intensa</translation>
+    </message>
+    <message>
+        <source>Light snow</source>
+        <translation>Nieve ligera</translation>
+    </message>
+    <message>
+        <source>Snow</source>
+        <translation>Nieve</translation>
+    </message>
+    <message>
+        <source>Heavy snow</source>
+        <translation>Nieve intensa</translation>
+    </message>
+    <message>
+        <source>Light snow showers</source>
+        <translation>Chubascos de nieve ligeros</translation>
+    </message>
+    <message>
+        <source>Heavy snow showers</source>
+        <translation>Chubascos de nieve intensos</translation>
+    </message>
+    <message>
+        <source>Thunderstorm</source>
+        <translation>Tormenta eléctrica</translation>
+    </message>
+    <message>
+        <source>Thunderstorm with hail</source>
+        <translation>Tormenta eléctrica con granizo</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Desconocido</translation>
+    </message>
 </context>
 <context>
     <name>WeatherInfo</name>
