@@ -1,5 +1,4 @@
 #include <QCoreApplication>
-#include <QDir>
 #include <QFileInfo>
 #include <QLocale>
 #include <QLoggingCategory>
@@ -11,8 +10,6 @@
 Q_LOGGING_CATEGORY(logTranslations, "caelestia.translations")
 
 namespace {
-
-const char* const kTranslationPrefix = "caelestia_";
 
 QStringList translationSearchPaths() {
     QStringList paths;
@@ -26,13 +23,20 @@ QStringList translationSearchPaths() {
     return paths;
 }
 
-bool tryLoadInto(QTranslator* translator, const QString& localeName) {
-    const QStringList paths = translationSearchPaths();
-    for (const QString& dir : paths) {
-        if (translator->load(QStringLiteral("%1%2").arg(QString::fromLatin1(kTranslationPrefix), localeName), dir)) {
-            qCInfo(logTranslations) << "Loaded translation" << localeName << "from" << dir;
+bool installFromFile(QCoreApplication* app, const QString& localeName) {
+    const QString filename = QStringLiteral("caelestia_%1.qm").arg(localeName);
+    for (const QString& dir : translationSearchPaths()) {
+        const QString fullPath = dir + QLatin1Char('/') + filename;
+        if (!QFileInfo::exists(fullPath)) continue;
+
+        auto* translator = new QTranslator(app);
+        if (translator->load(fullPath)) {
+            app->installTranslator(translator);
+            qCInfo(logTranslations) << "Loaded" << filename << "from" << dir;
             return true;
         }
+        qCWarning(logTranslations) << "Found but failed to load" << fullPath;
+        delete translator;
     }
     return false;
 }
@@ -44,38 +48,22 @@ void installCaelestiaTranslator() {
         return;
     }
 
-    const QLocale system = QLocale::system();
-    QStringList candidates = system.uiLanguages();
-    for (QString& c : candidates) {
-        c.replace(QLatin1Char('-'), QLatin1Char('_'));
+    // Install least-specific first so more-specific overrides end up on
+    // top of the translator stack (installTranslator prepends).
+    const QString sysName = QLocale::system().name();  // e.g. "es_CL"
+    const qsizetype sep = sysName.indexOf(QLatin1Char('_'));
+
+    QStringList order;
+    if (sep > 0) order << sysName.left(sep);
+    order << sysName;
+
+    bool installed = false;
+    for (const QString& candidate : std::as_const(order)) {
+        if (installFromFile(app, candidate)) installed = true;
     }
 
-    QStringList tried;
-    bool installedAny = false;
-
-    auto attempt = [&](const QString& name) {
-        if (name.isEmpty() || tried.contains(name)) return;
-        tried << name;
-        auto* t = new QTranslator(app);
-        if (tryLoadInto(t, name)) {
-            app->installTranslator(t);
-            installedAny = true;
-        } else {
-            delete t;
-        }
-    };
-
-    for (const QString& candidate : std::as_const(candidates)) {
-        attempt(candidate);
-        const qsizetype sep = candidate.indexOf(QLatin1Char('_'));
-        if (sep > 0) {
-            attempt(candidate.left(sep));
-        }
-    }
-
-    if (!installedAny) {
-        qCDebug(logTranslations) << "No translation file matched system locale" << system.name()
-                                 << "; candidates tried:" << tried;
+    if (!installed) {
+        qCDebug(logTranslations) << "No translation file matched system locale" << sysName;
     }
 }
 
