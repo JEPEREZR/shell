@@ -613,6 +613,33 @@ TRANSLATIONS: dict[str, str] = {
     "Humidity": "Humedad",
     "Feels Like": "Sensación térmica",
     "Wind": "Viento",
+    # Descripciones de atajos (GlobalShortcut)
+    "Increase brightness": "Aumentar brillo",
+    "Decrease brightness": "Disminuir brillo",
+    "Clear all notifications": "Limpiar todas las notificaciones",
+    "Toggle media playback": "Alternar reproducción multimedia",
+    "Previous track": "Pista anterior",
+    "Next track": "Pista siguiente",
+    "Stop media playback": "Detener reproducción multimedia",
+    "Open screenshot tool": "Abrir herramienta de captura de pantalla",
+    "Open screenshot tool (freeze mode)":
+        "Abrir herramienta de captura (modo congelado)",
+    "Open screenshot tool (clipboard)":
+        "Abrir herramienta de captura (al portapapeles)",
+    "Open screenshot tool (freeze mode, clipboard)":
+        "Abrir herramienta de captura (modo congelado, al portapapeles)",
+    "Open control center": "Abrir centro de control",
+    "Toggle launcher, dashboard and osd":
+        "Alternar lanzador, panel y OSD",
+    "Toggle dashboard": "Alternar panel",
+    "Toggle session menu": "Alternar menú de sesión",
+    "Toggle launcher": "Alternar lanzador",
+    "Interrupt launcher keybind": "Interrumpir atajo del lanzador",
+    "Toggle sidebar": "Alternar barra lateral",
+    "Toggle utilities": "Alternar utilidades",
+    "Lock the current session": "Bloquear la sesión actual",
+    "Unlock the current session": "Desbloquear la sesión actual",
+    "Reload devices": "Recargar dispositivos",
 }
 
 

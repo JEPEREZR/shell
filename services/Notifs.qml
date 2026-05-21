@@ -126,7 +126,7 @@ Singleton {
     CustomShortcut {
         // qmllint enable unresolved-type
         name: "clearNotifs"
-        description: "Clear all notifications"
+        description: qsTr("Clear all notifications")
         onPressed: {
             for (const notif of root.list.slice())
                 notif.close();

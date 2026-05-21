@@ -16,7 +16,7 @@ Scope {
     CustomShortcut {
         // qmllint enable unresolved-type
         name: "controlCenter"
-        description: "Open control center"
+        description: qsTr("Open control center")
         onPressed: WindowFactory.create()
     }
 
@@ -24,7 +24,7 @@ Scope {
     CustomShortcut {
         // qmllint enable unresolved-type
         name: "showall"
-        description: "Toggle launcher, dashboard and osd"
+        description: qsTr("Toggle launcher, dashboard and osd")
         onPressed: {
             if (root.hasFullscreen)
                 return;
@@ -37,7 +37,7 @@ Scope {
     CustomShortcut {
         // qmllint enable unresolved-type
         name: "dashboard"
-        description: "Toggle dashboard"
+        description: qsTr("Toggle dashboard")
         onPressed: {
             if (root.hasFullscreen)
                 return;
@@ -50,7 +50,7 @@ Scope {
     CustomShortcut {
         // qmllint enable unresolved-type
         name: "session"
-        description: "Toggle session menu"
+        description: qsTr("Toggle session menu")
         onPressed: {
             if (root.hasFullscreen)
                 return;
@@ -63,7 +63,7 @@ Scope {
     CustomShortcut {
         // qmllint enable unresolved-type
         name: "launcher"
-        description: "Toggle launcher"
+        description: qsTr("Toggle launcher")
         onPressed: root.launcherInterrupted = false
         onReleased: {
             if (!root.launcherInterrupted && !root.hasFullscreen) {
@@ -78,7 +78,7 @@ Scope {
     CustomShortcut {
         // qmllint enable unresolved-type
         name: "launcherInterrupt"
-        description: "Interrupt launcher keybind"
+        description: qsTr("Interrupt launcher keybind")
         onPressed: root.launcherInterrupted = true
     }
 
@@ -86,7 +86,7 @@ Scope {
     CustomShortcut {
         // qmllint enable unresolved-type
         name: "sidebar"
-        description: "Toggle sidebar"
+        description: qsTr("Toggle sidebar")
         onPressed: {
             if (root.hasFullscreen)
                 return;
@@ -99,7 +99,7 @@ Scope {
     CustomShortcut {
         // qmllint enable unresolved-type
         name: "utilities"
-        description: "Toggle utilities"
+        description: qsTr("Toggle utilities")
         onPressed: {
             if (root.hasFullscreen)
                 return;
