@@ -65,6 +65,7 @@ qml_module(caelestia
         requests.hpp requests.cpp
         toaster.hpp toaster.cpp
         imageanalyser.hpp imageanalyser.cpp
+        translations.cpp
     LIBRARIES
         Qt::Gui
         Qt::Quick
