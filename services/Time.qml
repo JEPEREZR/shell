@@ -18,7 +18,10 @@ Singleton {
     readonly property string amPmStr: timeComponents[2] ?? ""
 
     function format(fmt: string): string {
-        return Qt.formatDateTime(clock.date, fmt);
+        // Qt.locale().toString(...) honours QLocale::setDefault, while
+        // Qt.formatDateTime(date, fmt) falls back to the C locale for
+        // day/month names in QML — even after setDefault.
+        return Qt.locale().toString(clock.date, fmt);
     }
 
     SystemClock {
