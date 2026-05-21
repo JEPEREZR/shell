@@ -608,6 +608,11 @@ TRANSLATIONS: dict[str, str] = {
     "Thunderstorm": "Tormenta eléctrica",
     "Thunderstorm with hail": "Tormenta eléctrica con granizo",
     "Unknown City": "Ciudad desconocida",
+    "Sunrise": "Amanecer",
+    "Sunset": "Atardecer",
+    "Humidity": "Humedad",
+    "Feels Like": "Sensación térmica",
+    "Wind": "Viento",
 }
 
 

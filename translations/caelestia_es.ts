@@ -2772,6 +2772,26 @@ Distribución de teclado: %1</translation>
         <translation>Cargando...</translation>
     </message>
     <message>
+        <source>Sunrise</source>
+        <translation>Amanecer</translation>
+    </message>
+    <message>
+        <source>Sunset</source>
+        <translation>Atardecer</translation>
+    </message>
+    <message>
+        <source>Humidity</source>
+        <translation>Humedad</translation>
+    </message>
+    <message>
+        <source>Feels Like</source>
+        <translation>Sensación térmica</translation>
+    </message>
+    <message>
+        <source>Wind</source>
+        <translation>Viento</translation>
+    </message>
+    <message>
         <source>7-Day Forecast</source>
         <translation>Pronóstico de 7 días</translation>
     </message>
