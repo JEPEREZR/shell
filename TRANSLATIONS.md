@@ -81,22 +81,54 @@ Editar `translations/caelestia_es_CL.ts` y poner traducciones para los
 strings que difieran del español neutro. Qt usa esa traducción primero
 cuando `LANG=es_CL.*` y cae a `caelestia_es.qm` para todo lo demás.
 
-## Reconstruir e instalar
+## Reconstruir e instalar (workflow recomendado)
 
-PKGBUILD está fuera del repo, en `~/proyectos/pkg-caelestia-shell-es/`.
-Construye desde el clone local (`source=git+file://...`), así toma
-únicamente lo que esté **committeado** en la rama `feat/i18n-es`.
+Toda la operación se maneja desde `~/proyectos/pkg-caelestia-shell-es/`
+vía Makefile. `make help` lista todo:
 
-```bash
-cd ~/proyectos/caelestia-shell
-git add -u && git commit -m "..."
-
-cd ~/proyectos/pkg-caelestia-shell-es
-makepkg -si --noconfirm    # construye e instala
+```
+make help               # ver targets
+make status             # rama, dirtiness, paquete instalado
+make check              # lupdate + apply_es.py (no compila)
+make update             # ciclo completo: check + commit translations
+                        # + build + install + restart
+make reload             # build + install + restart (sin re-extraer)
+make sync               # fetch upstream + rebase feat/i18n-es
+make push               # git push del fork
 ```
 
-Para reiniciar el shell y ver el cambio (depende de cómo lo lances):
-`pkill quickshell` y volver a abrirlo, o reiniciar la sesión Hyprland.
+El PKGBUILD construye desde el clone local con `source=git+file://`,
+así que solo lee lo que está **committeado** en `feat/i18n-es`. Por
+eso `make update` hace `commit-translations` antes de `build`.
+
+### Workflow típico
+
+Cambios en un `.qml`:
+
+```
+# editar el .qml a mano (con qsTr() en strings nuevos)
+git add . && git commit -m "..."   # commit del cambio QML
+make update                        # extrae los strings nuevos,
+                                   # los aplica al .ts, los commitea,
+                                   # rebuilda, instala, reinicia
+# si apply_es.py reporta "Sin traducir: N", editar apply_es.py para
+# agregar las entradas faltantes y volver a `make update`
+```
+
+Solo refinar traducciones existentes (sin tocar QML):
+
+```
+# editar translations/apply_es.py
+make update
+```
+
+Sincronizar con upstream (cuidado, puede haber conflictos):
+
+```
+make sync       # rebase sobre upstream/main
+# resolver conflictos si los hay, git rebase --continue
+make update     # rebuild contra la base nueva
+```
 
 ## Volver al upstream
 
